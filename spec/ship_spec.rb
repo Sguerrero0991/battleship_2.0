@@ -1,0 +1,29 @@
+require './lib/ship'
+require 'rspec'
+
+RSpec.describe Ship do
+  it 'exists' do
+    cruiser = Ship.new("Cruiser", 3)
+
+    expect(cruiser).to be_a(Ship)
+  end
+
+  it 'has attributes' do
+    cruiser = Ship.new("Cruiser", 3)
+
+    expect(cruiser.name).to eq("Cruiser")
+    expect(cruiser.length).to eq(3)
+    expect(cruiser.health).to eq(3)
+
+  end
+
+  it 'can sink' do
+
+  end
+
+  it 'can hit the ship' do
+
+  end
+
+
+end
