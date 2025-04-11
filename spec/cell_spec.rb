@@ -1,6 +1,7 @@
 require './lib/ship'
 require './lib/cell'
 require 'rspec'
+require 'pry'
 
 RSpec.describe Cell do
   it 'exists' do
@@ -27,8 +28,14 @@ RSpec.describe Cell do
     cruiser = Ship.new("Cruiser", 3)
 
     cell.place_ship(cruiser)
+    expect(cell.ship).to eq(cruiser)
   end
 
-  
+  it 'can re-check if a cell is empty after a ship has been placed' do
+    cell = Cell.new("B4")
+    cruiser = Ship.new("Cruiser", 3)
 
+    cell.place_ship(cruiser)
+    expect(cell.empty?).to eq(false)
+  end
 end 
