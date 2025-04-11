@@ -23,11 +23,24 @@ class Cell
   end
 
   def fire_upon
-    @ship.hit
-    @fired_upon = true
+    if @ship = ship
+      @ship.hit
+      @fired_upon = true
+    else
+      @fired_upon = true
+    end 
   end
 
-  # case render 
-  #   when 
-  # end
+  def render(reveal = false)
+    if !@fired_upon  
+      return "S" if reveal && @ship
+     "."
+    elsif @ship == nil
+     "M"
+    elsif @ship.sunk? 
+     "X"
+    else 
+      "H" 
+    end 
+  end
 end
