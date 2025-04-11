@@ -22,5 +22,6 @@ class Cell
     @fired_upon
   end
 
+  
 
 end
