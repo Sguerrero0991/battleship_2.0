@@ -14,7 +14,6 @@ RSpec.describe Ship do
     expect(cruiser.name).to eq("Cruiser")
     expect(cruiser.length).to eq(3)
     expect(cruiser.health).to eq(3)
-
   end
 
   it 'can sink' do
@@ -27,7 +26,6 @@ RSpec.describe Ship do
     expect(cruiser.sunk?).to eq(false)
     cruiser.hit
     expect(cruiser.sunk?).to eq(true)
-
   end
 
   it 'can hit the ship' do
@@ -37,6 +35,4 @@ RSpec.describe Ship do
     cruiser.hit
     expect(cruiser.health).to eq(2)
   end
-
-
 end
