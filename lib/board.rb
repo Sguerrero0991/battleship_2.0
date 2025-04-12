@@ -1,23 +1,23 @@
+require './lib/cell'
 class Board
-  attr_reader :cells, :height, :width
-
+  attr_reader :height, :width
   def initialize
-    @cells = {}
     @height = ["A", "B", "C", "D"]
     @width = ["1", "2", "3", "4"]
-
+    @cells = {}
   end
 
   def cells
-    
-    @width.each do |width|
-      
-      @height.each do |index|
-        coordinate = "#{index}#{width}"
-        @cells[coordinate] = Cell.new(coordinate)
-        
+    if @cells.empty?
+      @height.each do |row|
+        @width.each do |col|
+          coordinate = "#{row}#{col}"
+          @cells[coordinate] = Cell.new(coordinate)
+        end
       end
     end
-
+    @cells
   end
+  
+
 end
