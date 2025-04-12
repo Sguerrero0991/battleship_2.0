@@ -22,10 +22,17 @@ class Board
   def valid_coordinate?(coordinate)
     if @cells.keys.include?(coordinate)
       return true
-    else
-      return false 
+    else false 
     end
   end
 
-  
+  def valid_placement?(ship, coordinates)
+    if ship.length == coordinates.length
+      return true
+    else false 
+    end
+    # binding.pry
+  end
+
+
 end
