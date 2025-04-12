@@ -26,34 +26,30 @@ class Board
     end
   end
 
-  # def valid_placement?(ship, coordinates)
-  #   if ship.length == coordinates.length
-  #     length = true
-  #     return true
-  #   else false 
-  #   end
-
-  #   if coordinates.split()
-
-
-  # end
   def valid_placement?(ship, coordinates)
     return false unless ship.length == coordinates.length
   
-    rows = coordinates.map { |coord| coord[0] } # e.g., ["A", "A", "A"]
-    cols = coordinates.map { |coord| coord[1..-1].to_i } # e.g., [1, 2, 3]
+    rows = coordinates.map do |coord|
+      coord[0]
+    end
+  
+    cols = coordinates.map do |coord|
+      coord[1..-1].to_i
+    end
   
     if rows.uniq.length == 1
-      # All in same row → check if columns are consecutive
-      return cols.each_cons(2).all? { |a, b| b == a + 1 }
+      return cols.each_cons(2).all? do |a, b|
+        b == a + 1
+      end
     elsif cols.uniq.length == 1
-      # All in same column → check if rows are consecutive
-      row_numbers = rows.map { |r| r.ord } # Convert letters to ASCII
-      return row_numbers.each_cons(2).all? { |a, b| b == a + 1 }
+      row_nums = rows.map do |r|
+        r.ord
+      end
+      return row_nums.each_cons(2).all? do |a, b|
+        b == a + 1
+      end
     else
-      # Diagonal or random
       return false
     end
   end
-
 end
