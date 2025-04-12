@@ -31,7 +31,6 @@ class Board
       return true
     else false 
     end
-    # binding.pry
   end
 
 
