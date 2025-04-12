@@ -52,4 +52,16 @@ class Board
       return false
     end
   end
+
+  def place(ship, coordinates)
+    coordinates.each do |coordinate|
+      binding.pry
+      if valid_coordinate?(coordinate) 
+        coordinates.each do |coordinate|
+          valid_placement?(ship, coordinates)
+        end
+      end
+    end
+    
+  end
 end
