@@ -1,3 +1,5 @@
+require './lib/cell'
+require './lib/ship'
 require './lib/board'
 require 'pry'
 require 'rspec'
@@ -15,7 +17,9 @@ RSpec.describe Board do
     board = Board.new
     board.cells
 
+    
     expect(board.cells).to be_a(Hash)
+    
     expect(board.cells.size).to eq(16)
   end
 
