@@ -28,9 +28,13 @@ class Board
 
   def valid_placement?(ship, coordinates)
     return false unless coordinates.all? do |coord|
-       valid_coordinate?(coord)
+      valid_coordinate?(coord) 
     end
 
+    return false if coordinates.any? do |coord| 
+      cells[coord].ship 
+    end
+    
     return false unless ship.length == coordinates.length
   
     rows = coordinates.map do |coord|
@@ -62,19 +66,6 @@ class Board
 
     coordinates.each do |coordinate|
       cells[coordinate].place_ship(ship)
-    
     end
   end
-
-  # def place(ship, coordinates)
-  #   coordinates.each do |coordinate|
-  #     binding.pry
-  #     if valid_coordinate?(coordinate) 
-  #       coordinates.each do |coordinate|
-  #         valid_placement?(ship, coordinates)
-  #       end
-  #     end
-  #   end
-    
-  # end
 end
