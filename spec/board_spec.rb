@@ -80,15 +80,26 @@ RSpec.describe Board do
     submarine = Ship.new("Submarine", 2)
 
     board.place(cruiser, ["A1", "A2", "A3"])
+    board.place(submarine, ["A4", "A5"])
 
+    
     cell_1 = board.cells["A1"]    
     cell_2 = board.cells["A2"]
-    cell_3 = board.cells["A3"]    
+    cell_3 = board.cells["A3"]
+    cell_4 = board.cells["A4"]
+    cell_5 = board.cells["A5"]
+
+    
 
     expect(cell_1.ship).to eq(cruiser)
     expect(cell_2.ship).to eq(cruiser)
     expect(cell_3.ship).to eq(cruiser)
     expect(cell_3.ship == cell_2.ship).to eq(true)
+
+    expect(cell_4.ship).to eq(nil)
+    
+
+
   end
 end
 
