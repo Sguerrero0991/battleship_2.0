@@ -21,7 +21,8 @@ class Board
   def valid_coordinate?(coordinate)
     if @cells.keys.include?(coordinate)
     return true
-    else false 
+    else 
+      false 
     end
   end
 
@@ -73,5 +74,21 @@ class Board
     coordinates.each do |coordinate|
       cells[coordinate].place_ship(ship)
     end
+  end
+
+
+  def render(reveal_ships = false)
+    output = "  " + @width.join(" ") + " \n"
+    
+    @height.each do |row|
+      output += row + " "
+      @width.each do |col|
+        coordinate = row + col
+        output += cells[coordinate].render(reveal_ships) + " "
+      end
+      output += "\n"
+    end
+  
+  output
   end
 end
