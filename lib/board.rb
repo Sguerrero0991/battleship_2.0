@@ -74,4 +74,17 @@ class Board
       cells[coordinate].place_ship(ship)
     end
   end
+
+  def render(reveal_ships = false)
+    output = "  " + @width.join(" ") + " \n"
+    @height.each do |row|
+      output += row + " "
+      @width.each do |col|
+        coordinate = row + col
+        output += cells[coordinate].render(reveal_ships) + " "
+      end
+      output += "\n"
+    end
+  output
+  end
 end

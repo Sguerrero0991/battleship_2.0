@@ -53,7 +53,7 @@ class Game
     print  "You now need to lay out your two ships. \n" 
     print "The Cruiser is three units long and the Submarine is two \n" 
     print "units long. \n" 
-    print computer_board.render(true)
+    puts computer_board.render(true)
     print "Enter the squares for the Cruiser (3 spaces):\n" 
   end
 
