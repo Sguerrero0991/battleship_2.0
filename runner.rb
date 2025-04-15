@@ -5,7 +5,5 @@ require_relative './lib/game'
 
 game = Game.new
 game.start
-if input = gets.chomp.downcase == "p"
-  game.setup
-end
+
 

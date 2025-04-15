@@ -16,8 +16,7 @@ class Game
     print "Enter p to play. Enter q to quit. \n"
     input = gets.chomp.downcase
     if input == "p"
-      p "Let's play Battleship!"
-
+      setup
     elsif input == "q"
       p "Goodbye!"
       return
@@ -48,13 +47,33 @@ class Game
         placed = true
       end
     end
-    
+    print "Let's play Battleship! \n"
     print "I have laid out my ships on the grid. \n" 
-    print  "You now need to lay out your two ships. \n" 
+    print "You now need to lay out your two ships. \n" 
     print "The Cruiser is three units long and the Submarine is two \n" 
     print "units long. \n" 
+    puts computer_board.render(false)
+    print "Enter the squares for the Cruiser (3 spaces):\n"
+    
+    cruiser = Ship.new("Cruiser", 3)
+    placed = false
+    until placed
+      coordinates = []
+      3.times do
+        print "Enter coordinate: "
+        input = gets.chomp.upcase
+        coordinates << input
+      end
+      if player_board.valid_placement?(cruiser, coordinates)
+        player_board.place(cruiser, coordinates)
+        placed = true
+      end
+    end
     puts computer_board.render(true)
-    print "Enter the squares for the Cruiser (3 spaces):\n" 
+    puts player_board.render(true)
+  end
+      
+      
   end
 
  
