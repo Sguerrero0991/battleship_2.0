@@ -55,7 +55,7 @@ class Game
     puts computer_board.render(false)
     print "Enter the squares for the Cruiser (3 spaces):\n"
     
-    cruiser = Ship.new("Cruiser", 3)
+    cruiser_2 = Ship.new("Cruiser", 3)
     placed = false
     until placed
       coordinates = []
@@ -64,17 +64,38 @@ class Game
         input = gets.chomp.upcase
         coordinates << input
       end
-      if player_board.valid_placement?(cruiser, coordinates)
-        player_board.place(cruiser, coordinates)
+      if player_board.valid_placement?(cruiser_2, coordinates)
+        player_board.place(cruiser_2, coordinates)
         placed = true
+      else
+        print "not a valid placment enter new squares for the Cruiser (3 spaces):\n"
       end
     end
     puts computer_board.render(true)
     puts player_board.render(true)
+    print "Enter the squares for the Submarine (2 spaces):\n"
+  
+
+    submarine_2 = Ship.new("Submarine", 2)
+    placed = false
+    until placed
+      coordinates = []
+      2.times do
+        print "Enter coordinate: "
+        input = gets.chomp.upcase
+        coordinates << input
+      end
+      if player_board.valid_placement?(submarine, coordinates)
+        player_board.place(submarine, coordinates)
+        placed = true
+      else
+        print "not a valid placment enter new squares for the Submarine (3 spaces):\n"
+      end
+    end
+    puts computer_board.render(true)
+    puts player_board.render(true) 
+    
   end
-      
-      
-  end
+end
 
  
-end
