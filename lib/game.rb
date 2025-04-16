@@ -58,12 +58,8 @@ class Game
     cruiser_2 = Ship.new("Cruiser", 3)
     placed = false
     until placed
-      coordinates = []
-      3.times do
         print "Enter coordinate: "
-        input = gets.chomp.upcase
-        coordinates << input
-      end
+        coordinates = gets.chomp.upcase.split
       if player_board.valid_placement?(cruiser_2, coordinates)
         player_board.place(cruiser_2, coordinates)
         placed = true
@@ -79,12 +75,9 @@ class Game
     submarine_2 = Ship.new("Submarine", 2)
     placed = false
     until placed
-      coordinates = []
-      2.times do
         print "Enter coordinate: "
-        input = gets.chomp.upcase
-        coordinates << input
-      end
+        coordinates = gets.chomp.upcase.split
+        # binding.pry
       if player_board.valid_placement?(submarine, coordinates)
         player_board.place(submarine, coordinates)
         placed = true
