@@ -26,6 +26,7 @@ class Game
   end
 
   def setup
+    board_setup = false
     keys = computer_board.cells.keys
   
     submarine = Ship.new("Submarine", 2)
@@ -87,6 +88,7 @@ class Game
     puts computer_board.render(true)
     puts player_board.render(true) 
     
+    board_setup = true
   end
 end
 
