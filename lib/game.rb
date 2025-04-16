@@ -77,7 +77,6 @@ class Game
     until placed
         print "Enter coordinate: "
         coordinates = gets.chomp.upcase.split
-        # binding.pry
       if player_board.valid_placement?(submarine, coordinates)
         player_board.place(submarine, coordinates)
         placed = true
