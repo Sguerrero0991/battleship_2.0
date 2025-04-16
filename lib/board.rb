@@ -76,10 +76,8 @@ class Board
     end
   end
 
-
   def render(reveal_ships = false)
     output = "  " + @width.join(" ") + " \n"
-    
     @height.each do |row|
       output += row + " "
       @width.each do |col|
@@ -88,7 +86,6 @@ class Board
       end
       output += "\n"
     end
-  
   output
   end
 end
